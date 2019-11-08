@@ -411,7 +411,6 @@ static struct ctl_table kern_table[] = {
 		.extra1		= &zero,
 		.extra2		= &two_million,
 	},
-#endif
 	{
 		.procname	= "sched_upmigrate_boosted",
 		.data		= &sysctl_sched_capacity_margin_up_boosted,
@@ -435,6 +434,7 @@ static struct ctl_table kern_table[] = {
 		.extra1         = &zero,
 		.extra2         = &one,
 	},
+#endif
 #ifdef CONFIG_SCHED_DEBUG
 	{
 		.procname	= "sched_min_granularity_ns",

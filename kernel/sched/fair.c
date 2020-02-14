@@ -7877,7 +7877,7 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 		if ((prefer_idle && best_idle_cpu != -1) ||
 		    (prefer_high_cap &&
 		     (best_idle_cpu != -1 || target_cpu != -1))) {
-			if (prefer_high_cap && p->prio <= DEFAULT_PRIO) {
+			if (prefer_high_cap) {
 				/*
 				 * For prefer_high_cap task, stop searching when an idle
 				 * cpu is found in mid cluster.
@@ -7895,12 +7895,12 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 	} while (sg = sg->next, sg != sd->groups);
 
 	if (prefer_idle && (best_idle_cpu != -1)) {
-		trace_sched_find_best_target(p, prefer_idle, min_util, cpu,
-					     best_idle_cpu, best_active_cpu,
-					     -1, best_idle_cpu, -1);
+                trace_sched_find_best_target(p, prefer_idle, min_util, cpu,
+                                             best_idle_cpu, best_active_cpu,
+                                             -1, best_idle_cpu, -1);
 
-		return best_idle_cpu;
-	}
+                return best_idle_cpu;
+        }
 
 	if (best_idle_cpu != -1 &&
 	    !is_packing_eligible(p, target_cpu, fbt_env, active_cpus_count,

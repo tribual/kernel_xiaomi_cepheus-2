@@ -761,12 +761,20 @@ int dsi_panel_update_doze(struct dsi_panel *panel) {
 	int rc = 0;
 
 	if (panel->doze_enabled && panel->doze_mode == DSI_DOZE_HBM) {
+		is_dimlayer_hbm_enabled = false;
+		is_fod_hbm_enabled = false;
+		dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_FOD_OFF);
 		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DOZE_HBM);
+		dsi_panel_set_backlight(panel, is_dimlayer_bl_enable);
 		if (rc)
 			pr_err("[%s] failed to send DSI_CMD_SET_DOZE_HBM cmd, rc=%d\n",
 					panel->name, rc);
 	} else if (panel->doze_enabled && panel->doze_mode == DSI_DOZE_LPM) {
+		is_dimlayer_hbm_enabled = false;
+		is_fod_hbm_enabled = false;
+		dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DISP_HBM_FOD_OFF);
 		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_DOZE_LBM);
+		dsi_panel_set_backlight(panel, is_dimlayer_bl_enable);
 		if (rc)
 			pr_err("[%s] failed to send DSI_CMD_SET_DOZE_LBM cmd, rc=%d\n",
 					panel->name, rc);

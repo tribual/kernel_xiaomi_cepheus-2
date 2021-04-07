@@ -1,6 +1,6 @@
 DATE=$(date +"%Y%m%d")
 VERSION=$(git rev-parse --short HEAD)
-KERNEL_NAME=Evasi0nKernel-cepheus-"$DATE"
+KERNEL_NAME=mod_Evasi0nKernel-cepheus-"$DATE"
 
 KERNEL_PATH=$PWD
 CLANG_PATH=~/clang-proton

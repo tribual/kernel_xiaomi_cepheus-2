@@ -1,6 +1,6 @@
 DATE=$(date +"%Y%m%d")
 VERSION=$(git rev-parse --short HEAD)
-KERNEL_NAME=Evasi0nKernel-cepheus-"$DATE"
+KERNEL_NAME=EvVoTriKernel-cepheus-"$DATE"
 
 export KERNEL_PATH=$PWD
 export ANYKERNEL_PATH=~/Anykernel3

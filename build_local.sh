@@ -1,4 +1,4 @@
-DATE=$(date +"%Y%m%d")
+DATE=$(date +"%Y%m%d-%H%M")
 VERSION=$(git rev-parse --short HEAD)
 KERNEL_NAME=EvVoTri-cepheus-"$DATE"
 
@@ -25,10 +25,10 @@ make O=out CC="ccache clang" CXX="ccache clang++" CROSS_COMPILE=$CLANG_PATH/bin/
 
 if [ ! -e $KERNEL_PATH/out/arch/arm64/boot/Image.gz-dtb ]; then
     echo "=======================FAILED!!!======================="
-    rm -rf $ANYKERNEL_PATH $KERNEL_PATH/out/
-    make mrproper>/dev/null 2>&1
-    git reset --hard HEAD 2>&1
-    exit -1>/dev/null 2>&1
+#    rm -rf $ANYKERNEL_PATH $KERNEL_PATH/out/
+#    make mrproper>/dev/null 2>&1
+#    git reset --hard HEAD 2>&1
+#    exit -1>/dev/null 2>&1
 fi
 
 echo "=========================Patch========================="

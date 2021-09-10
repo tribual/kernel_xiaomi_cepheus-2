@@ -1,4 +1,4 @@
-DATE=$(date +"%Y%m%d")
+DATE=$(date +"%Y%m%d-%H%M")
 VERSION=$(git rev-parse --short HEAD)
 KERNEL_NAME=EvVoTri-cepheus-"$DATE"
 

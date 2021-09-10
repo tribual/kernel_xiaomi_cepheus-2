@@ -7946,7 +7946,6 @@ static inline int find_best_target(struct task_struct *p, int *backup_cpu,
 					     -1, best_idle_cpu, -1);
 
 		return best_idle_cpu;
->>>>>>> 5bfee29945b4... kernel: sched: Mitigate non-boosted tasks preempting boosted tasks
 	}
 
 	if (target_cpu == -1)
